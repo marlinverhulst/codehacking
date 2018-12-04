@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Http\Requests;
+use App\Comment;
 
 class PostCommentsController extends Controller
 {
@@ -37,7 +38,9 @@ class PostCommentsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Comment::create($request->all());
+        
+
     }
 
     /**
