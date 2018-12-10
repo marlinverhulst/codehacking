@@ -30,7 +30,11 @@
                 <!-- Post Content -->
                 <p>{{$post->body}}</p>
                 <hr>
-
+                @if(Session::has('comment_message'))
+                    {{session('comment_message')}}    
+                
+                    
+                @endif
                 <!-- Blog Comments -->
 
                 <!-- Comments Form -->
@@ -39,6 +43,8 @@
 
                     {!!Form::open(['method'=>'POST', 'action'=> 'PostCommentsController@store'])!!}
                             <div class="form-group">
+
+                                <input type="hidden" name="post_id" value="{{$post->id}}">
                     
                                 {!!Form::label('body','Body')!!}
                                 {!!Form::textarea('body', null, ['class'=>'form-control', 'rows'=>'3'])!!}

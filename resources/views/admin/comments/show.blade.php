@@ -4,7 +4,7 @@
 
 
 
-@if(count($comments) > 0)
+@if(count($comments) > 0) 
 
 <h1>Comments</h1>
 
@@ -15,15 +15,20 @@
                 <th>Author</th>
                 <th>Email</th>
                 <th>Body</th>
+                <th>view Post</th>
+                <th>Approve</th>
+                <th>Delete</th>
             
             </tr>
         </th>
         <tbody>
-        @foreach ($comments as $comment )
+        
+            
+                @foreach ($comments as $comment )
+            <tr>
+        
             
         
-            <tr>
-
             <td>{{$comment->id}}</td>
             <td>{{$comment->author}}</td>
             <td>{{$comment->email}}</td>
@@ -71,8 +76,9 @@
                     {!!Form::close() !!}  
             </td>  
             </tr>
+            @endforeach
 
-        @endforeach    
+           
         </tbody>    
        
 
@@ -80,14 +86,15 @@
     
     </table>
 
-
-
-    
 @else
-
-<h1 class="text-center">No Comments Available</h1>
+    <h1 class="text-center">No Comments Available</h1>
     
+
 @endif
+
+
+    
+
 
      
 
