@@ -9,8 +9,9 @@
     
 
     <div class="row">
+            
         <div class="col-sm-3">
-        <img height = "40" class="img-resposive" src="{{$post->photo->file}}" alt="">
+        <img height = "40" class="img-resposive" src="{{$post->photo ? $post->photo->file : 'http://placehold.it/400x400'}}" alt="">
         </div>
         <div class="col-sm-9">
         {!!Form::model($post,['method'=>'PATCH', 'action'=> ['AdminPostsController@update', $post->id], 'files'=>true])!!}
